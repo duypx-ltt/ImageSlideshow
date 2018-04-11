@@ -114,7 +114,13 @@ open class ImageSlideshowItem: UIScrollView, UIScrollViewDelegate {
         }
 
         lastFrame = self.frame
-
+        if let imageData = self.imageView.image {
+            if imageData.size.width/imageData.size.height > self.imageView.frame.width / self.imageView.frame.height {
+                self.imageView.contentMode = .scaleAspectFit
+            } else {
+                self.imageView.contentMode = .scaleAspectFill
+            }
+        }
         contentSize = imageView.frame.size
         maximumZoomScale = calculateMaximumScale()
     }
