@@ -60,6 +60,7 @@ open class ImageSlideshowItem: UIScrollView, UIScrollViewDelegate {
 
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
+        imageView.backgroundColor = .black
 
         setPictoCenter()
 
