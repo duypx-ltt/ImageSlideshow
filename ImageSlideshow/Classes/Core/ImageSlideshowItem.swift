@@ -138,6 +138,13 @@ open class ImageSlideshowItem: UIScrollView, UIScrollViewDelegate {
                 self.activityIndicator?.hide()
                 self.loadFailed = image == nil
                 self.isLoading = false
+                if let imageData = self.imageView.image {
+                    if imageData.size.width/imageData.size.height > self.imageView.frame.width / self.imageView.frame.height {
+                        self.imageView.contentMode = .scaleAspectFit
+                    } else {
+                        self.imageView.contentMode = .scaleAspectFill
+                    }
+                }
             }
         }
     }
